@@ -58,7 +58,7 @@ State functions between screens:
 
 ```
 
-**game.js**
+**Game.js**
 
 ```js
 Game(){};
@@ -76,7 +76,7 @@ Game.prototype.gameOver = function () {};
 Game.prototype.removeGameScreen = function () {}
 ```
 
-**player-bird.js**
+**Player-bird.js**
 
 ```js
 function Player(canvas) {};
@@ -94,7 +94,7 @@ Player.prototype.didCollide = function foodSeed) {}
 Player.prototype.draw = function () {}
 ```
 
-**enemy-cat.js**
+**Enemy-cat.js**
 
 ```js
 function EnemyCat(canvas, x, speed) {
@@ -106,7 +106,7 @@ Enemy.prototype.updatePosition = function () {}
 Enemy.prototype.isInsideScreen = function () {}
 ```
 
-**food-seed.js**
+**Food-seed.js**
 
 ```js
 function FoodSeed(canvas, x, speed) {
@@ -211,7 +211,6 @@ https://trello.com/b/Ckt5ULnc
 
 
 ### Git
-
-### 
+https://github.com/nurlopez/marujito-adventures 
 
 ### Slides
