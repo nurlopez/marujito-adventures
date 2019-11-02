@@ -44,7 +44,7 @@ function main() {
           <span class="value"></span>
         </div>
         <div class="score">
-          <span class="label">Health points:</span>
+          <span class="label">Health:</span>
           <span class="value"></span>
         </div>
       </header>
