@@ -8,13 +8,13 @@ function Player(canvas, lives) {
     this.x = 0;
     this.y = canvas.height-this.size;
     this.direction = 1;
-    this.speed = 2;
+    this.speed = 5;
   }
   
   Player.prototype.setDirection = function(direction) {
-    // +1 down  -1 up
-    if (direction === 'up') this.direction = -1;
-    else if (direction === 'down') this.direction = 1;
+    // +1 right  -1 left
+    if (direction === 'right'){ this.direction = 1;}
+    else if (direction === 'left'){ this.direction = -1;}
   };
   
   Player.prototype.didCollide = function(enemy) {
@@ -41,11 +41,11 @@ function Player(canvas, lives) {
   
   Player.prototype.handleScreenCollision = function() {
     this.x = this.x + this.direction * this.speed;
-    var screenRight = this.canvas.width;
-    var screenLeft = 0;
+    var screenRight = 0;
+    var screenLeft = this.canvas.width-this.size;
   
-    if (this.x > screenLeft) this.direction = 1;
-    else if (this.x < screenRight) this.direction = -1;
+    if (this.x > screenLeft) this.direction = -1;
+    else if (this.x < screenRight) this.direction = 1;
   };
   
   Player.prototype.removeLife = function() {
