@@ -33,7 +33,11 @@ main {
     flex-direction: column;
     justify-items: center;
     align-items: center;
-    }
+}
+
+.score-lives {
+
+}
 
 .canvas-container {
     height: 786px;

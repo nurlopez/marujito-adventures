@@ -38,7 +38,7 @@ function main() {
   function createGameScreen() {
     var gameScreen = buildDom(`
     <main class="game container">
-      <header>
+      <header class = "score-lives">
         <div class="lives">
           <span class="label">Lives:</span>
           <span class="value"></span>

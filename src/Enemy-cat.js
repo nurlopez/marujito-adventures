@@ -1,11 +1,11 @@
 'use strict';
 
-function Enemy(canvas, y, speed) {
+function Enemy(canvas, x, speed) {
     this.canvas = canvas;
     this.ctx = canvas.getContext('2d');
     this.size = 20;
-    this.x = canvas.width + this.size;
-    this.y = y;
+    this.y = 0;
+    this.x = x;
     this.speed = speed;
   }
   
@@ -16,11 +16,11 @@ function Enemy(canvas, y, speed) {
   };
   
   Enemy.prototype.updatePosition = function() {
-    this.x = this.x - this.speed;
+    this.y = this.y + this.speed;
   };
   
   Enemy.prototype.isInsideScreen = function() {
     // if x plus half of its size is smaller then 0 return
-    return this.x + this.size / 2 > 0;
+    return this.y + this.size / 2 > 0;
   };
   
