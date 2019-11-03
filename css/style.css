@@ -10,6 +10,7 @@
 
 html {
     box-sizing: border-box;
+    background-color: black;
 }
 
 *,
@@ -20,26 +21,79 @@ html {
 
 body {
     margin: 0;
-    padding: 0;
+    padding: 100px 0 0 0;
     font-family: 'Mansalva', cursive;
+
+}
+
+body p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 h1 {
     font-family: 'Mansalva', cursive;
+    color: white;
 }
 
-main {
+/* Game screen*/ 
+
+.splash-main {
     display: flex;
     flex-direction: column;
     justify-items: center;
     align-items: center;
+    align-content: center;
+}
+
+
+/* Game screen*/ 
+.game-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: center;
+}
+
+.left-side {
+    height: 768px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    
 }
 
 .score-lives {
-
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 768px;
+    width: 256px;
 }
 
+.grandma-tip {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 .canvas-container {
-    height: 786px;
-    width: 786px;
+    height: 768px;
+    width: 768px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
 }
+
+
+/* GameOver screen*/ 
+
+.gameover-main {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    }

@@ -4,7 +4,7 @@ function Game() {
     this.canvas = null;
     this.ctx = null;
     this.enemies = [];
-    this.food = [];
+    this.foods = [];
     this.player = null;
     this.gameIsOver = false;
     this.gameScreen = null;
@@ -34,12 +34,14 @@ Game.prototype.start = function () {
     this.handleKeyDown = function (event) {
         if (this.ready) {
             if (event.key === 'ArrowLeft') {
-            // move left
-            }  if (event.key === 'ArrowRight'); { 
-            // move right
-            }  if (event.key === 'ArrowDown') {
-            //;
-        }
+                // move left
+            }
+            if (event.key === 'ArrowRight'); {
+                // move right
+            }
+            if (event.key === 'ArrowDown') {
+                //;
+            }
         }
     };
 
@@ -55,6 +57,7 @@ Game.prototype.startLoop = function () {
         if (Math.random() > 0.98) {
             var randomY = this.canvas.height * Math.random();
             this.enemies.push(new Enemy(this.canvas, randomY, 5));
+            this.foods.push(new Food(this.canvas, randomY, 5));
         }
 
 
@@ -68,6 +71,10 @@ Game.prototype.startLoop = function () {
             return enemy.isInsideScreen();
         });
 
+        this.foods = this.foods.filter(function (food) {
+            food.updatePosition();
+            return food.isInsideScreen();
+        });
 
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
@@ -76,6 +83,10 @@ Game.prototype.startLoop = function () {
 
 
         this.enemies.forEach(function (item) {
+            item.draw();
+        });
+
+        this.foods.forEach(function (item) {
             item.draw();
         });
 
@@ -101,6 +112,14 @@ Game.prototype.checkCollisions = function () {
             if (this.player.lives === 0) {
                 this.gameOver();
             }
+        }
+    }, this);
+
+    this.foods.forEach(function (food) {
+        if (this.player.didCollide(food)) {
+            this.player.addScore();
+
+            food.x = 0 - food.size;
         }
     }, this);
 };

@@ -1,25 +1,25 @@
 'use strict';
 
-function Food(canvas, y, speed) {
+function Food(canvas, x, speed) {
     this.canvas = canvas;
     this.ctx = canvas.getContext('2d');
-    this.radius = 10;
-    this.centerX = canvas.width / 2;
-    this.centerY = y;
+    this.size = 10;
+    this.y = 0;
+    this.x = x;
     this.speed = speed;
-}
-
-Food.prototype.draw = function () {
-    this.ctx.fillStyle = '#A6CFD5';
+  }
+  
+  Food.prototype.draw = function() {
+    this.ctx.fillStyle = '#77557';
     // fillRect(x, y, width, height)
-    this.ctx.arc(this.centerX, this.centerY, this.radius, 0, 2 * Math.PI, false);
-};
-
-Food.prototype.updatePosition = function () {
-    this.x = this.x - this.speed;
-};
-
-Food.prototype.isInsideScreen = function () {
+    this.ctx.fillRect(this.x, this.y, this.size, this.size);
+  };
+  
+  Food.prototype.updatePosition = function() {
+    this.y = this.y + this.speed;
+  };
+  
+  Food.prototype.isInsideScreen = function() {
     // if y plus half of its size is smaller then 0 return
-    return this.y + this.radius > 0;
-};
+    return this.y + this.size / 2 > 0;
+  };

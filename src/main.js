@@ -15,7 +15,8 @@ function main() {
 
   function createSplashScreen() {
     splashScreen = buildDom(`
-    <main>
+    <main class="splash-main">
+    <img src="../img/white-sq-300x300.jpg" alt="cover image">
       <h1>Marujito Adventures</h1>
       <button>Start</button>
     </main>
@@ -37,8 +38,9 @@ function main() {
 
   function createGameScreen() {
     var gameScreen = buildDom(`
-    <main class="game container">
-      <header class = "score-lives">
+    <main class="game-container">
+      <header class = "left-side">
+      <div class = "score-lives">
         <div class="lives">
           <span class="label">Lives:</span>
           <span class="value"></span>
@@ -47,6 +49,11 @@ function main() {
           <span class="label">Health:</span>
           <span class="value"></span>
         </div>
+        </div>
+        <article class="grandma-tip">
+        <p> grandma quote</p>
+        <img src = "../img/rectangle.png" alt = "grandma"/>
+        </article>
       </header>
       <div class="canvas-container">
         <canvas></canvas>
@@ -66,7 +73,8 @@ function main() {
 
   function createGameOverScreen(score) {
     gameOverScreen = buildDom(`
-      <main>
+      <main class="gameover-main">
+      <img src="../img/white-sq-300x300.jpg" alt="cover image">
         <h1>Game over</h1>
         <p>Your score: <span></span></p>
         <button>Restart</button>

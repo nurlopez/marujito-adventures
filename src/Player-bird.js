@@ -39,7 +39,29 @@ function Player(canvas, lives) {
     return false;
   };
 
+  Player.prototype.didCollide = function(food) {
+    var playerLeft = this.x;
+    var playerRight = this.x + this.size;
+    var playerTop = this.y;
+    var playerBottom = this.y + this.size;
   
+    var foodLeft = food.x;
+    var foodRight = food.x + food.size;
+    var foodTop = food.y;
+    var foodBottom = food.y + food.size;
+  
+    var crossRight = foodLeft <= playerRight && foodLeft >= playerLeft;
+    var crossLeft = foodRight >= playerLeft && foodRight <= playerRight;
+    var crossTop = foodBottom >= playerTop && foodBottom <= playerBottom;
+    var crossBottom = foodTop <= playerBottom && foodTop >= playerTop;
+  
+    if ((crossRight || crossLeft) && (crossBottom || crossTop)) {
+      return true;
+    }
+    return false;
+  };
+
+
   
   Player.prototype.handleScreenCollision = function() {
     this.x = this.x + this.direction * this.speed;
@@ -52,6 +74,10 @@ function Player(canvas, lives) {
   
   Player.prototype.removeLife = function() {
     this.lives -= 1;
+  };
+
+  Player.prototype.addScore = function() {
+    this.lives += 50;
   };
   
   Player.prototype.draw = function() {
