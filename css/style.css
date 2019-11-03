@@ -3,9 +3,7 @@
 2: #??
 
 */
-
-@import url("https://fonts.googleapis.com/css?family=Mansalva&display=swap");
-
+@import url('https://fonts.googleapis.com/css?family=Major+Mono+Display&display=swap');
 /* ---- reset ---- */
 
 html {
@@ -22,7 +20,7 @@ html {
 body {
     margin: 0;
     padding: 100px 0 0 0;
-    font-family: 'Mansalva', cursive;
+    font-family: 'Major Mono Display', monospace;
 
 }
 
@@ -31,11 +29,12 @@ body p {
 }
 
 h1 {
-    font-family: 'Mansalva', cursive;
+    font-family: 'Major Mono Display', monospace;
+    letter-spacing: 10px;
     color: white;
 }
 
-/* Game screen*/ 
+/* Game screen*/
 
 .splash-main {
     display: flex;
@@ -46,7 +45,7 @@ h1 {
 }
 
 
-/* Game screen*/ 
+/* Game screen*/
 .game-container {
     display: flex;
     flex-direction: row;
@@ -57,27 +56,25 @@ h1 {
 
 .left-side {
     height: 768px;
+    width: 256px;
     display: flex;
     flex-direction: column;
-    justify-items: center;
-    align-items: center;
-    align-content: center;
-    
+    justify-content: space-between;
 }
 
 .score-lives {
     color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Major Mono Display', monospace;
+    font-size: 20px;
     display: flex;
     flex-direction: column;
-    height: 768px;
-    width: 256px;
 }
 
-.grandma-tip {
+.grandma-tip p {
     color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Major Mono Display', monospace;
 }
+
 .canvas-container {
     height: 768px;
     width: 768px;
@@ -87,7 +84,7 @@ h1 {
 }
 
 
-/* GameOver screen*/ 
+/* GameOver screen*/
 
 .gameover-main {
     color: white;
@@ -96,4 +93,4 @@ h1 {
     justify-items: center;
     align-items: center;
     align-content: center;
-    }
+}

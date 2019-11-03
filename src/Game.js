@@ -57,8 +57,8 @@ Game.prototype.startLoop = function () {
         if (Math.random() > 0.98) {
             var randomY = this.canvas.height * Math.random();
             this.enemies.push(new Enemy(this.canvas, randomY, 5));
-            this.foods.push(new Food(this.canvas, randomY, 5));
-        }
+            this.foods.push(new Food(this.canvas, randomY, 3));
+        } 
 
 
         this.checkCollisions();

@@ -51,7 +51,7 @@ function main() {
         </div>
         </div>
         <article class="grandma-tip">
-        <p> grandma quote</p>
+        <p>grandma quote</p>
         <img src = "../img/rectangle.png" alt = "grandma"/>
         </article>
       </header>

@@ -2,17 +2,17 @@
 
 function Food(canvas, x, speed) {
     this.canvas = canvas;
-    this.ctx = canvas.getContext('2d');
-    this.size = 10;
+    this.ctx2 = canvas.getContext('2d');
+    this.size = 15;
     this.y = 0;
     this.x = x;
     this.speed = speed;
-  }
+}
   
   Food.prototype.draw = function() {
-    this.ctx.fillStyle = '#77557';
+    this.ctx2.fillStyle = '#B08091';
     // fillRect(x, y, width, height)
-    this.ctx.fillRect(this.x, this.y, this.size, this.size);
+    this.ctx2.fillRect(this.x, this.y, this.size, this.size);
   };
   
   Food.prototype.updatePosition = function() {
