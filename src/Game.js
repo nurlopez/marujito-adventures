@@ -4,7 +4,7 @@ function Game() {
     this.canvas = null;
     this.ctx = null;
     this.enemies = [];
-    //this.food = [];
+    this.food = [];
     this.player = null;
     this.gameIsOver = false;
     this.gameScreen = null;

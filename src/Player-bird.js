@@ -7,7 +7,7 @@ function Player(canvas, lives) {
     this.size = 50;
     this.x = 0;
     this.y = canvas.height-this.size;
-    this.direction = 1;
+    this.direction = 0;
     this.speed = 5;
   }
   
@@ -38,14 +38,16 @@ function Player(canvas, lives) {
     }
     return false;
   };
+
+  
   
   Player.prototype.handleScreenCollision = function() {
     this.x = this.x + this.direction * this.speed;
-    var screenRight = 0;
-    var screenLeft = this.canvas.width-this.size;
+    var screenRight = this.canvas.width-this.size;
+    var screenLeft = 0;
   
-    if (this.x > screenLeft) this.direction = -1;
-    else if (this.x < screenRight) this.direction = 1;
+    if (this.x < screenLeft) this.direction = 1;
+    else if (this.x > screenRight) this.direction = -1;
   };
   
   Player.prototype.removeLife = function() {
