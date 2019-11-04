@@ -8,7 +8,7 @@
 
 html {
     box-sizing: border-box;
-    background-color: black;
+    background-color: white;
 }
 
 *,
@@ -19,7 +19,7 @@ html {
 
 body {
     margin: 0;
-    padding: 75px 0 0 0;
+    padding: 50px 0 0 0;
     font-family: 'Major Mono Display', monospace;
 
 }
@@ -31,7 +31,7 @@ body p {
 h1 {
     font-family: 'Major Mono Display', monospace;
     letter-spacing: 10px;
-    color: white;
+    color: grey;
 }
 
 /* Game screen*/
@@ -76,7 +76,7 @@ h1 {
         }  
 
 .instructions {
-    color: white;
+    color: gray;
 }
 
 .right-btn {
@@ -94,7 +94,7 @@ h1 {
 
 
 .instructions p {
-    color: white;
+    color: gray;
     font-family: 'Major Mono Display', monospace;
     font-weight: bold;
     text-align: center;
@@ -102,7 +102,7 @@ h1 {
 }
 
 .instructions li {
-    color: white;
+    color: gray;
     font-family: 'Major Mono Display', monospace;
     font-weight: bold;
     list-style: none;
@@ -126,7 +126,7 @@ h1 {
 }
 
 .score-lives {
-    color: white;
+    color: grey;
     font-family: 'Major Mono Display', monospace;
     font-size: 20px;
     display: flex;
@@ -134,7 +134,7 @@ h1 {
 }
 
 .grandma-tip {
-    color: white;
+    color: gray;
     font-family: 'Major Mono Display', monospace;
 }
 
@@ -150,7 +150,7 @@ h1 {
 /* GameOver screen*/
 
 .gameover-main {
-    color: white;
+    color: grey;
     display: flex;
     flex-direction: column;
     justify-items: center;

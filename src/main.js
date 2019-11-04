@@ -16,7 +16,7 @@ function main() {
   function createSplashScreen() {
     splashScreen = buildDom(`
     <main class="splash-main">
-    <img src="./img/white-sq-300x300.jpg" alt="cover image">
+    <img src="./img/cover-marujito.png" alt="cover image">
       <h1>Marujito Adventures</h1>
       <button class= "start-btn">Start</button>
       <article class = "instructions">
@@ -63,7 +63,7 @@ function main() {
           <span class="label">Pepita says:</span>
           <span class="value"></span>
         </div>
-        <img src = "./img/rectangle.png" alt = "grandma"/>
+        <img src = "./img/quote.png" width = 256px height = auto alt = "grandma"/>
         </article>
       </header>
       <div class="canvas-container">

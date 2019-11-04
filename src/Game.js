@@ -5,7 +5,7 @@ function Game() {
     this.ctx = null;
     this.enemies = [];
     this.foodSeeds = [];
-    this.foodDonuts =[];
+    this.foodDonuts = [];
     this.player = null;
     this.gameIsOver = false;
     this.gameScreen = null;
@@ -35,16 +35,15 @@ Game.prototype.start = function () {
 
 
     this.handleKeyDown = function (event) {
-       console.log(event.key);
-            if (event.key === 'ArrowLeft')  {
-                this.player.setDirection('left'); // move left
-            }
-           else if (event.key === 'ArrowRight') {
-                this.player.setDirection('right'); // move right
-            } else if (event.keyCode == 32) {
-                this.player.direction=0;
-            };
-            
+        console.log(event.key);
+        if (event.key === 'ArrowLeft') {
+            this.player.setDirection('left'); // move left
+        } else if (event.key === 'ArrowRight') {
+            this.player.setDirection('right'); // move right
+        } else if (event.keyCode == 32) {
+            this.player.direction = 0;
+        };
+
     };
 
     document.body.addEventListener('keydown', this.handleKeyDown.bind(this));
@@ -59,11 +58,11 @@ Game.prototype.startLoop = function () {
         if (Math.random() > 0.99) {
             var randomY = this.canvas.height * Math.random();
             this.enemies.push(new Enemy(this.canvas, randomY, 3));
-        
+
         } else if (Math.random() > 0.98) {
             var randomY = this.canvas.height * Math.random();
             this.foodSeeds.push(new FoodSeed(this.canvas, randomY, 4));
-        }  else if (Math.random() > 0.99) {
+        } else if (Math.random() > 0.99) {
             var randomY = this.canvas.height * Math.random();
             this.foodDonuts.push(new FoodDonut(this.canvas, randomY, 2));
         }
@@ -111,13 +110,14 @@ Game.prototype.startLoop = function () {
 
         if (!this.gameIsOver) {
             window.requestAnimationFrame(loop);
-        }this.updateGameStats();
+        }
+        this.updateGameStats();
 
 
-        
+
     }.bind(this);
 
-    
+
 
     window.requestAnimationFrame(loop);
 };
@@ -138,23 +138,23 @@ Game.prototype.checkCollisions = function () {
     this.foodSeeds.forEach(function (foodSeed) {
         if (this.player.didCollide(foodSeed)) {
             this.player.addScore();
-            if (this.player.score %500 === 0) {
+            if (this.player.score % 500 === 0) {
                 var grannyTips = [
-                  'Potato slices on your face, cures headaches',
-                  'Feeling itchy? Olive oil for Eczema',
-                  'Have a little yogurt for that bad breath',
-                  'Ease your hangover with a teaspoon of apple cider vinegar',
-                  'Vodka for stinky feet',
-                  'Stop snoring with a glass of warm milk and tumeric powder',
-                  'Have you had enough to eat? Are you sure? Do you want a sandwich?',
-                  'When I was your age I had to walk to school uphill, both ways!',
-                  'If you can\'t say something nice, don\'t say anything at',
-                  'You catch more flies with honey than with vinegar',
-                  'Don\'t leave until tomorrow what you can do today'
-                  ]
-               this.quote = grannyTips[Math.floor(Math.random() * grannyTips.length)];
-               return this.quote;
-              } 
+                    'Potato slices on your face, cures headaches',
+                    'Feeling itchy? Olive oil for Eczema',
+                    'Have a little yogurt for that bad breath',
+                    'Ease your hangover with a teaspoon of apple cider vinegar',
+                    'Vodka for stinky feet',
+                    'Stop snoring with a glass of warm milk and tumeric powder',
+                    'Have you had enough to eat? Are you sure? Do you want a sandwich?',
+                    'When I was your age I had to walk to school uphill, both ways!',
+                    'If you can\'t say something nice, don\'t say anything at',
+                    'You catch more flies with honey than with vinegar',
+                    'Don\'t leave until tomorrow what you can do today'
+                ]
+                this.quote = grannyTips[Math.floor(Math.random() * grannyTips.length)];
+                return this.quote;
+            }
             foodSeed.y = 0 - foodSeed.size;
         }
     }, this);
@@ -162,7 +162,7 @@ Game.prototype.checkCollisions = function () {
     this.foodDonuts.forEach(function (foodDonut) {
         if (this.player.didCollide(foodDonut)) {
             if (this.player.score > 0) {
-            this.player.subtractScore();
+                this.player.subtractScore();
             } else {
                 this.gameOver();
             }
@@ -189,7 +189,7 @@ Game.prototype.removeGameScreen = function () {
 };
 
 Game.prototype.updateGameStats = function () {
-    
+
     this.livesElement.innerHTML = this.player.lives;
     this.scoreElement.innerHTML = this.player.score;
     this.quoteElement.innerHTML = this.quote;
