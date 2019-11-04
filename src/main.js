@@ -59,7 +59,7 @@ function main() {
         </div>
         </div>
         <article class="grandma-tip">
-        <p>grandma quote</p>
+        <p>Pepita quote</p>
         <img src = "../img/rectangle.png" alt = "grandma"/>
         </article>
       </header>
@@ -84,7 +84,7 @@ function main() {
       <main class="gameover-main">
       <img src="../img/white-sq-300x300.jpg" alt="cover image">
         <h1>Game over</h1>
-        <p>Your score: <span></span></p>
+        <p>Your score: <span>${score}</span></p>
         <button class = "restart-btn">Restart</button>
         <button class= "start-btn">home</button>
     </main>

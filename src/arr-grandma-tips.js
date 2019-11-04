@@ -1,4 +1,3 @@
-
 var grannyTips = [
     'Potato slices on your face, cures headaches',
     'Feeling itchy? Olive oil for Eczema',
@@ -14,7 +13,8 @@ var grannyTips = [
 
 ]
 
-function randomMessage (grannyTips) {
-for (var i = 0; i <grannyTips.length; i++)
-return grannyTips[i];
+function randomMsg(grannyTips) {
+    return grannyTips[Math.floor(Math.random() * grannyTips.length)];
+
 }
+

@@ -116,12 +116,14 @@ Game.prototype.startLoop = function () {
             item.draw();
         });
 
+        this.updateGameStats();
+
         if (!this.gameIsOver) {
             window.requestAnimationFrame(loop);
-        }
+        }this.updateGameStats();
 
 
-        this.updateGameStats();
+        
     }.bind(this);
 
     
@@ -152,7 +154,11 @@ Game.prototype.checkCollisions = function () {
 
     this.foodDonuts.forEach(function (foodDonut) {
         if (this.player.didCollide(foodDonut)) {
+            if (this.player.score > 0) {
             this.player.subtractScore();
+            } else {
+                this.gameOver();
+            }
 
             foodDonut.y = 0 - foodDonut.size;
         }
@@ -168,7 +174,7 @@ Game.prototype.gameOver = function () {
     this.gameIsOver = true;
 
 
-    this.onGameOverCallback();
+    this.onGameOverCallback(this.score);
 };
 
 Game.prototype.removeGameScreen = function () {
@@ -179,4 +185,6 @@ Game.prototype.updateGameStats = function () {
     
     this.livesElement.innerHTML = this.player.lives;
     this.scoreElement.innerHTML = this.player.score;
+   // this.quoteElement.innerHTML = this.quote;
+    this.score = this.player.score;
 };
