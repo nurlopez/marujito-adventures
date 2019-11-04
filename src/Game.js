@@ -4,7 +4,8 @@ function Game() {
     this.canvas = null;
     this.ctx = null;
     this.enemies = [];
-    this.foods = [];
+    this.foodSeeds = [];
+    this.foodDonuts =[];
     this.player = null;
     this.gameIsOver = false;
     this.gameScreen = null;
@@ -70,8 +71,11 @@ Game.prototype.startLoop = function () {
         
         } else if (Math.random() > 0.98) {
             var randomY = this.canvas.height * Math.random();
-            this.foods.push(new Food(this.canvas, randomY, 4));
-        }  
+            this.foodSeeds.push(new FoodSeed(this.canvas, randomY, 4));
+        }  else if (Math.random() > 0.97) {
+            var randomY = this.canvas.height * Math.random();
+            this.foodDonuts.push(new FoodDonut(this.canvas, randomY, 2));
+        }
 
 
         this.checkCollisions();
@@ -84,9 +88,14 @@ Game.prototype.startLoop = function () {
             return enemy.isInsideScreen();
         });
 
-        this.foods = this.foods.filter(function (food) {
-            food.updatePosition();
-            return food.isInsideScreen();
+        this.foodSeeds = this.foodSeeds.filter(function (foodSeed) {
+            foodSeed.updatePosition();
+            return foodSeed.isInsideScreen();
+        });
+
+        this.foodDonuts = this.foodDonuts.filter(function (foodDonut) {
+            foodDonut.updatePosition();
+            return foodDonut.isInsideScreen();
         });
 
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -99,7 +108,11 @@ Game.prototype.startLoop = function () {
             item.draw();
         });
 
-        this.foods.forEach(function (item) {
+        this.foodSeeds.forEach(function (item) {
+            item.draw();
+        });
+
+        this.foodDonuts.forEach(function (item) {
             item.draw();
         });
 
@@ -129,11 +142,19 @@ Game.prototype.checkCollisions = function () {
         }
     }, this);
 
-    this.foods.forEach(function (food) {
-        if (this.player.didCollide(food)) {
+    this.foodSeeds.forEach(function (foodSeed) {
+        if (this.player.didCollide(foodSeed)) {
             this.player.addScore();
 
-            food.y = 0 - food.size;
+            foodSeed.y = 0 - foodSeed.size;
+        }
+    }, this);
+
+    this.foodDonuts.forEach(function (foodDonut) {
+        if (this.player.didCollide(foodDonut)) {
+            this.player.subtractScore();
+
+            foodDonut.y = 0 - foodDonut.size;
         }
     }, this);
 };
@@ -155,7 +176,7 @@ Game.prototype.removeGameScreen = function () {
 };
 
 Game.prototype.updateGameStats = function () {
-    //this.score += 1;
+    
     this.livesElement.innerHTML = this.player.lives;
     this.scoreElement.innerHTML = this.player.score;
 };

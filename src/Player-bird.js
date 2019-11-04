@@ -41,21 +41,21 @@ function Player(canvas, lives, score) {
     return false;
   };
 
-  Player.prototype.didCollide = function(food) {
+  Player.prototype.didCollide = function(foodSeed) {
     var playerLeft = this.x;
     var playerRight = this.x + this.size;
     var playerTop = this.y;
     var playerBottom = this.y + this.size;
   
-    var foodLeft = food.x;
-    var foodRight = food.x + food.size;
-    var foodTop = food.y;
-    var foodBottom = food.y + food.size;
+    var foodSeedLeft = foodSeed.x;
+    var foodSeedRight = foodSeed.x + foodSeed.size;
+    var foodSeedTop = foodSeed.y;
+    var foodSeedBottom = foodSeed.y + foodSeed.size;
   
-    var crossRight = foodLeft <= playerRight && foodLeft >= playerLeft;
-    var crossLeft = foodRight >= playerLeft && foodRight <= playerRight;
-    var crossTop = foodBottom >= playerTop && foodBottom <= playerBottom;
-    var crossBottom = foodTop <= playerBottom && foodTop >= playerTop;
+    var crossRight = foodSeedLeft <= playerRight && foodSeedLeft >= playerLeft;
+    var crossLeft = foodSeedRight >= playerLeft && foodSeedRight <= playerRight;
+    var crossTop = foodSeedBottom >= playerTop && foodSeedBottom <= playerBottom;
+    var crossBottom = foodSeedTop <= playerBottom && foodSeedTop >= playerTop;
   
     if ((crossRight || crossLeft) && (crossBottom || crossTop)) {
       return true;
@@ -63,6 +63,27 @@ function Player(canvas, lives, score) {
     return false;
   };
 
+  Player.prototype.didCollide = function(foodDonut) {
+    var playerLeft = this.x;
+    var playerRight = this.x + this.size;
+    var playerTop = this.y;
+    var playerBottom = this.y + this.size;
+  
+    var foodDonutLeft = foodDonut.x;
+    var foodDonutRight = foodDonut.x + foodDonut.size;
+    var foodDonutTop = foodDonut.y;
+    var foodDonutBottom = foodDonut.y + foodDonut.size;
+  
+    var crossRight = foodDonutLeft <= playerRight && foodDonutLeft >= playerLeft;
+    var crossLeft = foodDonutRight >= playerLeft && foodDonutRight <= playerRight;
+    var crossTop = foodDonutBottom >= playerTop && foodDonutBottom <= playerBottom;
+    var crossBottom = foodDonutTop <= playerBottom && foodDonutTop >= playerTop;
+  
+    if ((crossRight || crossLeft) && (crossBottom || crossTop)) {
+      return true;
+    }
+    return false;
+  };
 
   Player.prototype.handleScreenCollision = function() {
     this.x = this.x + this.direction * this.speed;
@@ -78,7 +99,11 @@ function Player(canvas, lives, score) {
   };
 
   Player.prototype.addScore = function() {
-    this.score += 50;
+    this.score += 100;
+  };
+
+  Player.prototype.subtractScore = function() {
+    this.score -= 50;
   };
   
   Player.prototype.draw = function() {
