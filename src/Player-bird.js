@@ -13,8 +13,8 @@ function Player(canvas, lives) {
   
   Player.prototype.setDirection = function(direction) {
     // +1 right  -1 left
-    if (direction === 'right'){ this.direction = 1;}
-    else if (direction === 'left'){ this.direction = -1;}
+    if (direction === 'left'){ this.direction = -1;}
+    else if (direction === 'right'){ this.direction = 1;}
   };
   
   Player.prototype.didCollide = function(enemy) {
@@ -62,7 +62,6 @@ function Player(canvas, lives) {
   };
 
 
-  
   Player.prototype.handleScreenCollision = function() {
     this.x = this.x + this.direction * this.speed;
     var screenRight = this.canvas.width-this.size;
