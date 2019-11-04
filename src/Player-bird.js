@@ -1,9 +1,10 @@
 'use strict';
 
-function Player(canvas, lives) {
+function Player(canvas, lives, score) {
     this.canvas = canvas;
     this.ctx = this.canvas.getContext('2d');
     this.lives = lives;
+    this.score = score;
     this.size = 50;
     this.x = 0;
     this.y = canvas.height-this.size;
@@ -15,6 +16,7 @@ function Player(canvas, lives) {
     // +1 right  -1 left
     if (direction === 'left'){ this.direction = -1;}
     else if (direction === 'right'){ this.direction = 1;}
+    else if (this.direction === 'keyup') {this.direction = 0;}
   };
   
   Player.prototype.didCollide = function(enemy) {
@@ -76,7 +78,7 @@ function Player(canvas, lives) {
   };
 
   Player.prototype.addScore = function() {
-    this.lives += 50;
+    this.score += 50;
   };
   
   Player.prototype.draw = function() {

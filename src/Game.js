@@ -28,7 +28,7 @@ Game.prototype.start = function () {
     this.canvas.setAttribute('width', this.containerWidth);
     this.canvas.setAttribute('height', this.containerHeight);
 
-    this.player = new Player(this.canvas, 1);
+    this.player = new Player(this.canvas, 1, 0);
 
 
     this.handleKeyDown = function (event) {
@@ -38,11 +38,14 @@ Game.prototype.start = function () {
             }
            else if (event.key === 'ArrowRight') {
                 this.player.setDirection('right'); // move right
+            } else if (event.keyCode == 32) {
+                this.player.direction=0;
             };
             
     };
 
     document.body.addEventListener('keydown', this.handleKeyDown.bind(this));
+
 /*
     this.handleKeyUp = function (event) {
         console.log(event.key);
@@ -61,13 +64,13 @@ Game.prototype.start = function () {
 Game.prototype.startLoop = function () {
     var loop = function () {
 
-        if (Math.random() > 0.97) {
+        if (Math.random() > 0.99) {
             var randomY = this.canvas.height * Math.random();
             this.enemies.push(new Enemy(this.canvas, randomY, 3));
         
         } else if (Math.random() > 0.98) {
             var randomY = this.canvas.height * Math.random();
-            this.foods.push(new Food(this.canvas, randomY, 5));
+            this.foods.push(new Food(this.canvas, randomY, 4));
         }  
 
 
@@ -126,13 +129,13 @@ Game.prototype.checkCollisions = function () {
         }
     }, this);
 
-    /*this.foods.forEach(function (food) {
+    this.foods.forEach(function (food) {
         if (this.player.didCollide(food)) {
             this.player.addScore();
 
             food.y = 0 - food.size;
         }
-    }, this);*/
+    }, this);
 };
 
 Game.prototype.passGameOverCallback = function (callback) {
@@ -154,5 +157,5 @@ Game.prototype.removeGameScreen = function () {
 Game.prototype.updateGameStats = function () {
     //this.score += 1;
     this.livesElement.innerHTML = this.player.lives;
-    this.scoreElement.innerHTML = this.score;
+    this.scoreElement.innerHTML = this.player.score;
 };
