@@ -16,7 +16,7 @@ function main() {
   function createSplashScreen() {
     splashScreen = buildDom(`
     <main class="splash-main">
-    <img src="../img/white-sq-300x300.jpg" alt="cover image">
+    <img src="./img/white-sq-300x300.jpg" alt="cover image">
       <h1>Marujito Adventures</h1>
       <button class= "start-btn">Start</button>
       <article class = "instructions">
@@ -60,7 +60,7 @@ function main() {
         </div>
         <article class="grandma-tip">
         <p>Pepita quote</p>
-        <img src = "../img/rectangle.png" alt = "grandma"/>
+        <img src = "./img/rectangle.png" alt = "grandma"/>
         </article>
       </header>
       <div class="canvas-container">
@@ -82,7 +82,7 @@ function main() {
   function createGameOverScreen(score) {
     gameOverScreen = buildDom(`
       <main class="gameover-main">
-      <img src="../img/white-sq-300x300.jpg" alt="cover image">
+      <img src="./img/white-sq-300x300.jpg" alt="cover image">
         <h1>Game over</h1>
         <p>Your score: <span>${score}</span></p>
         <button class = "restart-btn">Restart</button>
