@@ -138,6 +138,10 @@ h1 {
     font-family: 'Major Mono Display', monospace;
 }
 
+.quote .value {
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .canvas-container {
     height: 768px;
     width: 768px;

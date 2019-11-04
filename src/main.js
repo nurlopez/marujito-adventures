@@ -61,6 +61,7 @@ function main() {
         <article class="grandma-tip">
         <div class="quote">
           <span class="label">Pepita says:</span>
+          </br>
           <span class="value"></span>
         </div>
         <img src = "./img/rectangle.png" alt = "grandma"/>
