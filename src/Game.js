@@ -10,6 +10,7 @@ function Game() {
     this.gameIsOver = false;
     this.gameScreen = null;
     this.score = 0;
+    this.quote = 'At 500 points I\'ll talk';
 }
 
 
@@ -22,6 +23,7 @@ Game.prototype.start = function () {
 
     this.livesElement = this.gameScreen.querySelector('.lives .value');
     this.scoreElement = this.gameScreen.querySelector('.score .value');
+    this.quoteElement = this.gameScreen.querySelector('.quote .value');
 
 
     this.containerWidth = this.canvasContainer.offsetWidth;
@@ -47,17 +49,6 @@ Game.prototype.start = function () {
 
     document.body.addEventListener('keydown', this.handleKeyDown.bind(this));
 
-/*
-    this.handleKeyUp = function (event) {
-        console.log(event.key);
-             if (event.key === 'keyup')  {
-                 this.player.setDirection(0); // move left
-             };
-             
-     };
- 
-     document.body.addEventListener('keyup', this.handleKeyUp.bind(this));
- */
 
     this.startLoop();
 };
@@ -72,7 +63,7 @@ Game.prototype.startLoop = function () {
         } else if (Math.random() > 0.98) {
             var randomY = this.canvas.height * Math.random();
             this.foodSeeds.push(new FoodSeed(this.canvas, randomY, 4));
-        }  else if (Math.random() > 0.97) {
+        }  else if (Math.random() > 0.99) {
             var randomY = this.canvas.height * Math.random();
             this.foodDonuts.push(new FoodDonut(this.canvas, randomY, 2));
         }
@@ -185,6 +176,6 @@ Game.prototype.updateGameStats = function () {
     
     this.livesElement.innerHTML = this.player.lives;
     this.scoreElement.innerHTML = this.player.score;
-   // this.quoteElement.innerHTML = this.quote;
+    this.quoteElement.innerHTML = this.quote;
     this.score = this.player.score;
 };

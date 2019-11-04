@@ -133,7 +133,7 @@ h1 {
     flex-direction: column;
 }
 
-.grandma-tip p {
+.grandma-tip {
     color: white;
     font-family: 'Major Mono Display', monospace;
 }

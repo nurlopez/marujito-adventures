@@ -59,7 +59,10 @@ function main() {
         </div>
         </div>
         <article class="grandma-tip">
-        <p>Pepita quote</p>
+        <div class="quote">
+          <span class="label">Pepita says:</span>
+          <span class="value"></span>
+        </div>
         <img src = "./img/rectangle.png" alt = "grandma"/>
         </article>
       </header>
