@@ -18,7 +18,15 @@ function main() {
     <main class="splash-main">
     <img src="../img/white-sq-300x300.jpg" alt="cover image">
       <h1>Marujito Adventures</h1>
-      <button>Start</button>
+      <button class= "start-btn">Start</button>
+      <article class = "instructions">
+      <p>instructions</p>
+      <ul>
+      <li><button class ="right-btn">&#x25B6</button> = move Marujito to the right</li>
+      <li><button class ="right-btn">&#x25C0</button> = move Marujito to the left</li>
+      <li><button class ="right-btn">space bar</button> = Marujito stops</li>
+      </ul>
+      </article>
     </main>
   `);
 
@@ -77,12 +85,16 @@ function main() {
       <img src="../img/white-sq-300x300.jpg" alt="cover image">
         <h1>Game over</h1>
         <p>Your score: <span></span></p>
-        <button>Restart</button>
+        <button class = "restart-btn">Restart</button>
+        <button class= "start-btn">home</button>
     </main>
     `);
 
-    var button = gameOverScreen.querySelector('button');
+    var button = gameOverScreen.querySelector('.restart-btn');
     button.addEventListener('click', startGame);
+
+    var button = gameOverScreen.querySelector('.start-btn');
+    button.addEventListener('click', backSplash);
 
     var span = gameOverScreen.querySelector('span');
     span.innerText = score;
@@ -117,7 +129,13 @@ function main() {
     removeGameScreen();
     createGameOverScreen(score);
   }
+  function backSplash() {
+    
+    
+    removeGameOverScreen();
+    createSplashScreen();
 
+  }
   // -- initialize Splash screen on initial start
 
   createSplashScreen();
