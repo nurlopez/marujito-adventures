@@ -5,12 +5,13 @@ function Player(canvas, lives, score) {
     this.ctx = this.canvas.getContext('2d');
     this.lives = lives;
     this.score = score;
-    this.size = 50;
+    this.size = 60;
     this.x = 0;
     this.y = canvas.height-this.size;
     this.direction = 0;
     this.speed = 5;
-  }
+    this.imageBird = new Image ();
+    }
   
   Player.prototype.setDirection = function(direction) {
     // +1 right  -1 left
@@ -107,8 +108,7 @@ function Player(canvas, lives, score) {
   };
   
   Player.prototype.draw = function() {
-    this.ctx.fillStyle = '#66D3FA';
-    // fillRect(x, y, width, height)
-    this.ctx.fillRect(this.x, this.y, this.size, this.size);
-  };
+    this.imageBird.src = './img/marujito.png';
+    this.ctx.drawImage(this.imageBird, this.x, this.y, this.size, this.size);
+   };
   

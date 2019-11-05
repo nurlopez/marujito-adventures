@@ -60,7 +60,7 @@ function main() {
         </div>
         <article class="grandma-tip">
         <div class="quote">
-          <span class="label">Pepita says:</span>
+          <span class="label">pepita says:</span>
           <span class="value"></span>
         </div>
         <img src = "./img/quote.png" width = 256px height = auto alt = "grandma"/>

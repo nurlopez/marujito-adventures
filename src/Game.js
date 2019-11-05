@@ -10,7 +10,7 @@ function Game() {
     this.gameIsOver = false;
     this.gameScreen = null;
     this.score = 0;
-    this.quote = 'At 500 points I\'ll talk';
+    this.quote = 'Every 500 points I\'ll talk';
 }
 
 
